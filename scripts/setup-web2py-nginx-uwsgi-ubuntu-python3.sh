@@ -28,7 +28,7 @@ apt-get -y upgrade
 apt-get autoremove
 apt-get autoclean
 apt-get -y install nginx-full
-apt-get -y install build-essential python3-dev libxml2-dev python3-pip unzip
+apt-get -y install build-essential python3-dev libxml2-dev libpq-dev python3-pip unzip
 pip3 install setuptools --no-use-wheel --upgrade
 PIPPATH=`which pip3`
 $PIPPATH install --upgrade uwsgi
