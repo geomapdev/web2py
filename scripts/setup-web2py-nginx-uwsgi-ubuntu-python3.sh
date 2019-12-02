@@ -108,8 +108,8 @@ server {
             ###remove the comments to turn on if you want gzip compression of your pages
             # include /etc/nginx/conf.d/web2py/gzip.conf;
             ### end gzip section
-            ### remove the comments if you want to enable uploads (max 10 MB)
-            #client_max_body_size 10m;
+            ### 50 MB is current Gmail attachment size limit
+            client_max_body_size 50m;
             ###
         }
         ###to enable correct use of response.static_version
