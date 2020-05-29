@@ -203,7 +203,9 @@ exec uwsgi --master --die-on-term --emperor /etc/uwsgi --logto /var/log/uwsgi/uw
 # Install Web2py
 mkdir /home/www-data
 cd /home/www-data
-wget http://web2py.com/examples/static/web2py_src.zip
+# use release 2.18.3 due to validation issue with >=2.19
+wget https://github.com/web2py/web2py/archive/R-2.18.3.zip
+#wget http://web2py.com/examples/static/web2py_src.zip
 unzip web2py_src.zip
 mv web2py/handlers/wsgihandler.py web2py/wsgihandler.py
 rm web2py_src.zip
