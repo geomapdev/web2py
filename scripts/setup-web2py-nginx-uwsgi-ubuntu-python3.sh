@@ -207,6 +207,7 @@ cd /home/www-data
 wget https://github.com/web2py/web2py/archive/R-2.18.3.zip
 #wget http://web2py.com/examples/static/web2py_src.zip
 unzip R-2.18.3.zip
+mv web2py-R-2.18.3 web2py
 mv web2py/handlers/wsgihandler.py web2py/wsgihandler.py
 rm R-2.18.3.zip
 chown -R www-data:www-data web2py
