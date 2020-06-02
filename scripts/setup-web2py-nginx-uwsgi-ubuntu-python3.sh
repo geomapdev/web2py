@@ -203,13 +203,17 @@ exec uwsgi --master --die-on-term --emperor /etc/uwsgi --logto /var/log/uwsgi/uw
 # Install Web2py
 mkdir /home/www-data
 cd /home/www-data
-# use release 2.18.3 due to validation issue with >=2.19
-wget https://github.com/web2py/web2py/archive/R-2.18.3.zip
-#wget http://web2py.com/examples/static/web2py_src.zip
-unzip R-2.18.3.zip
-mv web2py-R-2.18.3 web2py
+
+wget http://web2py.com/examples/static/web2py_src.zip
+unzip web2py_src.zip
+rm web2py_src.zip
+
+# revert to older version of validators.py
+rm /home/www-data/web2py/gluon/packages/dal/pydal/validators.py
+wget https://raw.githubusercontent.com/web2py/pydal/f55c7b4413e9ee1e9e060c7d54dc7f451ad1caa9/pydal/validators.py --directory-prefix /home/www-data/web2py/gluon/packages/dal/pydal/
+
 mv web2py/handlers/wsgihandler.py web2py/wsgihandler.py
-rm R-2.18.3.zip
+
 chown -R www-data:www-data web2py
 cd /home/www-data/web2py
 if [ "$nopassword" -eq 0 ]
